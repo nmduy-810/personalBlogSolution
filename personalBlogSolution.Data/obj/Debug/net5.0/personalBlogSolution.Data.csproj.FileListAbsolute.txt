@@ -1,0 +1,15 @@
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/personalBlogSolution.Data.deps.json
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/ref/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/personalBlogSolution.Data.pdb
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.csprojAssemblyReference.cache
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.AssemblyInfoInputs.cache
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.AssemblyInfo.cs
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.csproj.CoreCompileInputs.cache
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/ref/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.pdb
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/personalBlogSolution.Data.runtimeconfig.json
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/bin/Debug/net5.0/personalBlogSolution.Data.runtimeconfig.dev.json
+/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Data/obj/Debug/net5.0/personalBlogSolution.Data.genruntimeconfig.cache
