@@ -4,4 +4,17 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="System" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\personalBlogSolution.Data\personalBlogSolution.Data.csproj" />
+      <ProjectReference Include="..\personalBlogSolution.ViewModels\personalBlogSolution.ViewModels.csproj" />
+    </ItemGroup>
+
 </Project>
