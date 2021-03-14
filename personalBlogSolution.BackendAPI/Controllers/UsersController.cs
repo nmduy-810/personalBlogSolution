@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.ViewModels.System.Users;
@@ -17,13 +18,14 @@ namespace personalBlogSolution.BackendAPI.Controllers
         }
         
         [HttpGet("paging")]
-        public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
+        public async Task<IActionResult> GetAllUsersPaging([FromQuery] GetUserPagingRequest request)
         {
             var users = await _userService.GetUsersPaging(request);
             return Ok(users);
         }
         
         [HttpPost("register")]
+        
         public async Task<IActionResult> Register([FromForm] RegisterRequest request)
         {
             if (!ModelState.IsValid)
@@ -38,6 +40,7 @@ namespace personalBlogSolution.BackendAPI.Controllers
         }
         
         [HttpPost("authenticate")]
+        [AllowAnonymous]
         public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
         {
             if(!ModelState.IsValid)

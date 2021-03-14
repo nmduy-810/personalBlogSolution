@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +17,7 @@ using personalBlogSolution.Services.Catalog.Post;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.Utilities.Constants;
+using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.BackendAPI
 {
@@ -43,8 +46,8 @@ namespace personalBlogSolution.BackendAPI
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
-
-            services.AddControllers();
+            
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
             services.AddSwaggerGen(c =>
             {
@@ -80,9 +83,9 @@ namespace personalBlogSolution.BackendAPI
                 });
             });
 
-            string issuer = Configuration.GetValue<string>("Tokens:Issuer");
-            string signingKey = Configuration.GetValue<string>("Tokens:Key");
-            byte[] signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
+            var issuer = Configuration.GetValue<string>("Tokens:Issuer");
+            var signingKey = Configuration.GetValue<string>("Tokens:Key");
+            var signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
 
             services.AddAuthentication(opt =>
                 {

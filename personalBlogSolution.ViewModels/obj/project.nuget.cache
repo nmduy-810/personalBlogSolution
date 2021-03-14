@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6XXvYBx+k0KcmClKmP9YrL2NvpODYkEqIqQNBSZqa37D1sFmybbsRU0+SU5Ti7Mqjcyv9dPrjMSYOCauo2JjvQ==",
+  "dgSpecHash": "vX460cCBtFXIA8c5KCKVz8RuRvEFw9pov0Cgox9nwyH3VH+qTSDCO3Z8XMmDZ0kuFoz9767wvM2JvdHlJdq0Ug==",
   "success": true,
   "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
   "expectedPackageFiles": [
+    "/Users/duynguyen/.nuget/packages/fluentvalidation/9.5.2/fluentvalidation.9.5.2.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.http.features/5.0.4/microsoft.aspnetcore.http.features.5.0.4.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512"

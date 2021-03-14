@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AQDWNKs5fmDObgl7100+RYIZVljS8jxMtMW96rtUBdGBw0q2ti7R2u6Qf8ou6PSgsDTNWpv9PNtAICeCPFrSDw==",
+  "dgSpecHash": "D8pmXxchKxCAyfTpWGo1ILMTn/AdExkI2IeBjjW+2kXpIZiiiKxzkYtFa7uJQcxM+W4tB/YFaf20GzzYd9G9aw==",
   "success": true,
   "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
   "expectedPackageFiles": [
+    "/Users/duynguyen/.nuget/packages/fluentvalidation/9.5.2/fluentvalidation.9.5.2.nupkg.sha512",
+    "/Users/duynguyen/.nuget/packages/fluentvalidation.aspnetcore/9.5.2/fluentvalidation.aspnetcore.9.5.2.nupkg.sha512",
+    "/Users/duynguyen/.nuget/packages/fluentvalidation.dependencyinjectionextensions/9.5.2/fluentvalidation.dependencyinjectionextensions.9.5.2.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/5.0.4/microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.4/microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.4/microsoft.aspnetcore.cryptography.keyderivation.5.0.4.nupkg.sha512",
