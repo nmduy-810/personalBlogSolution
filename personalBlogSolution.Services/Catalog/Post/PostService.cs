@@ -18,7 +18,7 @@ namespace personalBlogSolution.Services.Catalog.Post
         private readonly PersonalBlogDbContext _context;
         private readonly IStorageService _storageService;
         private const string UserContentFolderName = "user-content";
-        
+
         //Dependency Injection
         public PostService(PersonalBlogDbContext context, IStorageService storageService)
         {
@@ -33,7 +33,7 @@ namespace personalBlogSolution.Services.Catalog.Post
                 join pic in _context.PostInCategories on p.Id equals pic.PostId
                 join c in _context.Categories on pic.CategoryId equals c.Id
                 select new {p, pic, c};
-
+            
             //2. Get Data
             var data = await query.Select(item => new PostVM()
             {
@@ -52,14 +52,17 @@ namespace personalBlogSolution.Services.Catalog.Post
 
         public async Task<PostVM> GetById(int postId)
         {
+            //1. Find id of post
             var post = await _context.Posts.FindAsync(postId);
             
+            //2. Select category data
             var categories = await (from c in _context.Categories
                 join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
                 join pic in _context.PostInCategories on c.Id equals pic.CategoryId
                 where pic.PostId == postId
                 select ct.Name).ToListAsync();
             
+            //3. Select image data
             var image = await _context.PostImages.Where(x => x.PostId == postId && x.IsDefault).FirstOrDefaultAsync();
 
             var postViewModel = new PostVM()
@@ -87,7 +90,8 @@ namespace personalBlogSolution.Services.Catalog.Post
                 SeoTitle = request.SeoTitle,
                 ViewCount = 0,
                 DateCreated = DateTime.Now,
-                DateModified = DateTime.Now
+                DateModified = DateTime.Now,
+                UserId =  request.UserId
             };
 
             if (request.ThumbnailImage != null)
@@ -135,15 +139,15 @@ namespace personalBlogSolution.Services.Catalog.Post
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<int> Delete(PostDeleteRequest request)
+        public async Task<int> Delete(int id)
         {
-            var post = await _context.Posts.FindAsync(request.Id);
+            var post = await _context.Posts.FindAsync(id);
             if (post == null)
             {
-                throw new Exception($"Cannot find a post: {request.Id}");
+                throw new Exception($"Cannot find a post: {id}");
             }
             
-            var images = _context.PostImages.Where(x => x.PostId == request.Id);
+            var images = _context.PostImages.Where(x => x.PostId == id);
             foreach (var image in images)
             {
                 await _storageService.DeleteFileAsync(image.ImagePath);

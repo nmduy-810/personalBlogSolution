@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Http;
 
 namespace personalBlogSolution.ViewModels.Catalog.Post
@@ -11,5 +12,7 @@ namespace personalBlogSolution.ViewModels.Catalog.Post
         public string SeoTitle { get; set; }
         
         public IFormFile ThumbnailImage { get; set; }
+        
+        public Guid UserId { get; set; }
     }
 }

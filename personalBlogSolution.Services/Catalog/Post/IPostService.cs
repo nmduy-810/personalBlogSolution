@@ -20,7 +20,7 @@ namespace personalBlogSolution.Services.Catalog.Post
         Task<int> Update(PostUpdateRequest request);
 
         //Xoá bài viết
-        Task<int> Delete(PostDeleteRequest request);
+        Task<int> Delete(int id);
         
         //Helper Methods
         Task<string> SaveFile(IFormFile file);
