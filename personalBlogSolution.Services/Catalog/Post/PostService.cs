@@ -91,7 +91,6 @@ namespace personalBlogSolution.Services.Catalog.Post
                 ViewCount = 0,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
-                UserId =  request.UserId
             };
 
             if (request.ThumbnailImage != null)

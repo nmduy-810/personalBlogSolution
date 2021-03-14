@@ -26,8 +26,6 @@ namespace personalBlogSolution.Data.Configurations
             builder.Property(x => x.DateCreated).HasDefaultValue(DateTime.Now);
 
             builder.Property(x => x.DateModified).HasDefaultValue(DateTime.Now);
-
-            builder.HasOne(x => x.AppUser).WithMany(x => x.Posts).HasForeignKey(x => x.UserId);
         }
     }
 }

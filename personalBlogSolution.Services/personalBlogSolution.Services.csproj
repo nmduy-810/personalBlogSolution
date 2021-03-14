@@ -3,10 +3,6 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="System" />
-    </ItemGroup>
     
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />

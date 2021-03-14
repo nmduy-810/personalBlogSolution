@@ -11,7 +11,5 @@ namespace personalBlogSolution.Data.Entities
         public string LastName { get; set; }
 
         public DateTime Dob { get; set; }
-
-        public List<Post> Posts { get; set; }
     }
 }

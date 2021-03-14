@@ -214,7 +214,6 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
-                    UserId = adminId
                 },
                 new Post()
                 {
@@ -226,7 +225,6 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
-                    UserId = adminId
                 },
                 new Post()
                 {
@@ -238,7 +236,6 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
-                    UserId = adminId
                 }
             );
 
