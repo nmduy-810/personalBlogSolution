@@ -10,3 +10,15 @@
 /Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.dll
 /Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/ref/personalBlogSolution.Utilities.dll
 /Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.pdb
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/bin/Debug/net5.0/personalBlogSolution.Utilities.deps.json
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/bin/Debug/net5.0/personalBlogSolution.Utilities.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/bin/Debug/net5.0/ref/personalBlogSolution.Utilities.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/bin/Debug/net5.0/personalBlogSolution.Utilities.pdb
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.csprojAssemblyReference.cache
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.AssemblyInfoInputs.cache
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.AssemblyInfo.cs
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.csproj.CoreCompileInputs.cache
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/ref/personalBlogSolution.Utilities.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/Debug/net5.0/personalBlogSolution.Utilities.pdb

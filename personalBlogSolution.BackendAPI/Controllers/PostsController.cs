@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using personalBlogSolution.Services.Catalog.Post;
+using personalBlogSolution.Services.Catalog.Posts;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.ViewModels.Catalog.Post;
 

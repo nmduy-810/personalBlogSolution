@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "peNaO6xRbsD46CsPpAD92Ielj+a39Bu00x5S7NX9UuB/fEHeBrWrkMT2PQbiFL0DeMvnZxVJ8Mwc9RWhjWRivA==",
+  "dgSpecHash": "KRV9S3IB71gLN/GgHgxTG0ErWgN5lggdcXRDWTnLJPLxDEVujt4leSet6eexPBb+THnLxfeo1P7k+LVqx0JNVQ==",
   "success": true,
-  "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj",
+  "projectFilePath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

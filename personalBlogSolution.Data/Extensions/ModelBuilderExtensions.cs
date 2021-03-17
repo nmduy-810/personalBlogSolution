@@ -36,7 +36,7 @@ namespace personalBlogSolution.Data.Extensions
                 Email = "nguyenminhduy8101996@gmail.com",
                 NormalizedEmail = "nguyenminhduy8101996@gmail.com",
                 EmailConfirmed = true,
-                PasswordHash = hasher.HashPassword(null, "1234$"),
+                PasswordHash = hasher.HashPassword(null, "Admin123@"),
                 SecurityStamp = string.Empty,
                 FirstName = "Nguyen",
                 LastName = "Duy",
@@ -214,6 +214,8 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
+                    UserId = adminId
+                        
                 },
                 new Post()
                 {
@@ -225,6 +227,7 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
+                    UserId = adminId
                 },
                 new Post()
                 {
@@ -236,6 +239,7 @@ namespace personalBlogSolution.Data.Extensions
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     ParentId = null,
+                    UserId = adminId
                 }
             );
 

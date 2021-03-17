@@ -11,7 +11,7 @@ using personalBlogSolution.Data.Entities;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.ViewModels.Catalog.Post;
 
-namespace personalBlogSolution.Services.Catalog.Post
+namespace personalBlogSolution.Services.Catalog.Posts
 {
     public class PostService: IPostService
     {
@@ -30,9 +30,7 @@ namespace personalBlogSolution.Services.Catalog.Post
         {
             //1. Select Join Query
             var query = from p in _context.Posts
-                join pic in _context.PostInCategories on p.Id equals pic.PostId
-                join c in _context.Categories on pic.CategoryId equals c.Id
-                select new {p, pic, c};
+                select new { p };
             
             //2. Get Data
             var data = await query.Select(item => new PostVM()
@@ -91,6 +89,7 @@ namespace personalBlogSolution.Services.Catalog.Post
                 ViewCount = 0,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
+                UserId = request.UserId
             };
 
             if (request.ThumbnailImage != null)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KJpaoAOTFLHrcC3s7B+GvO5jztr9a2ZFqxzIeiktoP+RLU/pqmFCVuCo1dquvBNRFTjWLSuGOApKnkle94nkoA==",
+  "dgSpecHash": "IkdtRZAsRbgQDEPDc4P1GBXYPgXzIBbnfkq1Aqco5PEswALhM3LkVAKP1aXUruwM7oc4PMmqEJDl2Mxo8mN/lQ==",
   "success": true,
-  "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj",
+  "projectFilePath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj",
   "expectedPackageFiles": [
     "/Users/duynguyen/.nuget/packages/fluentvalidation/9.5.2/fluentvalidation.9.5.2.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.4/microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",

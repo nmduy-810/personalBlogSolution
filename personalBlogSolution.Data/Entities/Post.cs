@@ -30,5 +30,9 @@ namespace personalBlogSolution.Data.Entities
         public List<PostImage> PostImages { get; set; }
 
         public List<PostInMeta> PostInMetas { get; set; }
+
+        public AppUser AppUser { get; set; }
+
+        public Guid UserId { get; set; }
     }
 }

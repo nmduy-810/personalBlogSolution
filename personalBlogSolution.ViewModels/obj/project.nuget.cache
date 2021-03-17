@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vX460cCBtFXIA8c5KCKVz8RuRvEFw9pov0Cgox9nwyH3VH+qTSDCO3Z8XMmDZ0kuFoz9767wvM2JvdHlJdq0Ug==",
+  "dgSpecHash": "bn5HgefL3a5YWAyb0tVv7nIwiCRxT9xypoKwJRDRZ2+BE5A0noW0ax8Vkm9HFmNt0NlDomtG4i+/CCsCGkyoIw==",
   "success": true,
-  "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
+  "projectFilePath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
   "expectedPackageFiles": [
     "/Users/duynguyen/.nuget/packages/fluentvalidation/9.5.2/fluentvalidation.9.5.2.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/microsoft.aspnetcore.http.features/5.0.4/microsoft.aspnetcore.http.features.5.0.4.nupkg.sha512",

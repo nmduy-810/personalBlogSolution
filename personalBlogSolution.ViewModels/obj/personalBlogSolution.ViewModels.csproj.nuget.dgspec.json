@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj": {}
+    "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj": {}
   },
   "projects": {
-    "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj": {
+    "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
+        "projectUniqueName": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
         "projectName": "personalBlogSolution.ViewModels",
-        "projectPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
+        "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj",
         "packagesPath": "/Users/duynguyen/.nuget/packages/",
-        "outputPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.ViewModels/obj/",
+        "outputPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/duynguyen/.nuget/NuGet/NuGet.Config"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }

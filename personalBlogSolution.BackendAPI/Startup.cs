@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -13,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using personalBlogSolution.Data.EF;
 using personalBlogSolution.Data.Entities;
-using personalBlogSolution.Services.Catalog.Post;
+using personalBlogSolution.Services.Catalog.Posts;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.Utilities.Constants;

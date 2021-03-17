@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using personalBlogSolution.ViewModels.Catalog.Post;
 
-namespace personalBlogSolution.Services.Catalog.Post
+namespace personalBlogSolution.Services.Catalog.Posts
 {
     public interface IPostService
     {

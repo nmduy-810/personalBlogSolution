@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TkXo5LutYh5GPhaiQsrSNKENz4xMYS7Nz1l6CF5U6E3wpP9EJWZcUuNMi59kOL3HL5nBMZu4qgHN3L8yzHuvgQ==",
+  "dgSpecHash": "rizuUlJKI7wwOKZNVla9W5QMe4M82E2j4mUUXX4Hnni6W0bHu72iojluavbsUrARNF3ETcbrO1WX9Dd5NMZdrg==",
   "success": true,
-  "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.AdminApp/personalBlogSolution.AdminApp.csproj",
+  "projectFilePath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/personalBlogSolution.AdminApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D8pmXxchKxCAyfTpWGo1ILMTn/AdExkI2IeBjjW+2kXpIZiiiKxzkYtFa7uJQcxM+W4tB/YFaf20GzzYd9G9aw==",
+  "dgSpecHash": "RPMw2YdBYSsxExQQQYn0BwY82HA5pS+gkH0BrBAdqfGQMErJEHfqRotkGVc8vklVpq1hRfRSa32SmnjY3pwhcg==",
   "success": true,
-  "projectFilePath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
+  "projectFilePath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
   "expectedPackageFiles": [
     "/Users/duynguyen/.nuget/packages/fluentvalidation/9.5.2/fluentvalidation.9.5.2.nupkg.sha512",
     "/Users/duynguyen/.nuget/packages/fluentvalidation.aspnetcore/9.5.2/fluentvalidation.aspnetcore.9.5.2.nupkg.sha512",

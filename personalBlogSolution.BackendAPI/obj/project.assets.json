@@ -6053,11 +6053,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
+      "projectUniqueName": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
       "projectName": "personalBlogSolution.BackendAPI",
-      "projectPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
+      "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.BackendAPI/personalBlogSolution.BackendAPI.csproj",
       "packagesPath": "/Users/duynguyen/.nuget/packages/",
-      "outputPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.BackendAPI/obj/",
+      "outputPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.BackendAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/duynguyen/.nuget/NuGet/NuGet.Config"
@@ -6072,11 +6072,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj": {
-              "projectPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj"
+            "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj": {
+              "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/personalBlogSolution.Services.csproj"
             },
-            "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj": {
-              "projectPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj"
+            "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj": {
+              "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj"
             }
           }
         }
@@ -6122,7 +6122,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

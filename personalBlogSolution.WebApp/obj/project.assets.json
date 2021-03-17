@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.WebApp/personalBlogSolution.WebApp.csproj",
+      "projectUniqueName": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.WebApp/personalBlogSolution.WebApp.csproj",
       "projectName": "personalBlogSolution.WebApp",
-      "projectPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.WebApp/personalBlogSolution.WebApp.csproj",
+      "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.WebApp/personalBlogSolution.WebApp.csproj",
       "packagesPath": "/Users/duynguyen/.nuget/packages/",
-      "outputPath": "/Users/duynguyen/Documents/Development/personalBlogSolution/personalBlogSolution.WebApp/obj/",
+      "outputPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.WebApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/duynguyen/.nuget/NuGet/NuGet.Config"
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }
