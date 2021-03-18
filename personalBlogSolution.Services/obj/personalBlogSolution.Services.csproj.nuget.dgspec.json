@@ -222,7 +222,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Data/personalBlogSolution.Data.csproj": {
+                "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Data/personalBlogSolution.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

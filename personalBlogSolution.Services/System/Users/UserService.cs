@@ -94,7 +94,7 @@ namespace personalBlogSolution.Services.System.Users
                 return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
             }
             
-            return new ApiErrorResult<bool>(SystemConstants.UnSuccessfulDataCreate);
+            return new ApiErrorResult<bool>(SystemConstants.DataNotCreateSuccessful);
         }
 
         public async Task<ApiResult<string>> Authenticate(LoginRequest request)

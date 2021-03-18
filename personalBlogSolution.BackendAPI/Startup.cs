@@ -12,8 +12,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using personalBlogSolution.Data.EF;
 using personalBlogSolution.Data.Entities;
+using personalBlogSolution.Services.Catalog.Categories;
 using personalBlogSolution.Services.Catalog.Comments;
+using personalBlogSolution.Services.Catalog.Contacts;
 using personalBlogSolution.Services.Catalog.Posts;
+using personalBlogSolution.Services.Catalog.Tags;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.Utilities.Constants;
@@ -49,7 +52,9 @@ namespace personalBlogSolution.BackendAPI
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<ICommentService, CommentService>();
-            
+            services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<ITagService, TagService>();
             
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 

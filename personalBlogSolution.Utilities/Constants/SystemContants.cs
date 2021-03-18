@@ -10,7 +10,7 @@ namespace personalBlogSolution.Utilities.Constants
 
         public const string SuccessfulDataCreate = "The data has been successfully created";
         
-        public const string UnSuccessfulDataCreate = "The data has been unsuccessfully created";
+        public const string DataNotCreateSuccessful = "Data was not created successfully";
         
         public const string SuccessfulDataUpdate = "The data has been successfully updated";
         

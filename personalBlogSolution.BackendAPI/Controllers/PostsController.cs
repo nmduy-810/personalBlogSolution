@@ -28,7 +28,7 @@ namespace personalBlogSolution.BackendAPI.Controllers
             {
                 return BadRequest(posts);
             }
-            return Ok(posts);
+            return Ok(posts.ResultDataObject);
         }
 
         [HttpGet("get-post-by-id")]

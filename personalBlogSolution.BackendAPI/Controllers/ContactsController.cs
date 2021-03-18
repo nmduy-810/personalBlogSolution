@@ -1,67 +1,56 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using personalBlogSolution.Services.Catalog.Comments;
-using personalBlogSolution.ViewModels.Catalog.Comment;
+using personalBlogSolution.Services.Catalog.Contacts;
+using personalBlogSolution.ViewModels.Catalog.Contact;
 
 namespace personalBlogSolution.BackendAPI.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
-    public class CommentsController : ControllerBase
+    public class ContactsController : ControllerBase
     {
-        private readonly ICommentService _commentService;
+        private readonly IContactService _contactService;
 
-        public CommentsController(ICommentService commentService)
+        public ContactsController(IContactService contactService)
         {
-            _commentService = commentService;
+            _contactService = contactService;
         }
-
+        
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll()
         {
-            var comments = await _commentService.GetAll();
-            if (!comments.IsSuccess)
+            var contacts = await _contactService.GetAll();
+            if (!contacts.IsSuccess)
             {
-                return BadRequest(comments);
+                return BadRequest(contacts);
             }
-            return Ok(comments.ResultDataObject);
+            return Ok(contacts.ResultDataObject);
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCommentById(int id)
-        {
-            var comment = await _commentService.GetById(id);
-            if (!comment.IsSuccess)
-            {
-                return BadRequest(comment);
-            }
-            return Ok(comment);
-        }
-
+        
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] CommentCreateRequest request)
+        public async Task<IActionResult> Create([FromForm] ContactCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _commentService.Create(request);
+            var result = await _contactService.Create(request);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
             }
             return Ok(result);
         }
-
+        
         [HttpPut]
-        public async Task<IActionResult> Update([FromForm] CommentUpdateRequest request)
+        public async Task<IActionResult> Update([FromForm] ContactUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var result = await _commentService.Update(request);
+            var result = await _contactService.Update(request);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -76,7 +65,7 @@ namespace personalBlogSolution.BackendAPI.Controllers
             {
                 return BadRequest();
             }
-            var result = await _commentService.Delete(id);
+            var result = await _contactService.Delete(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);

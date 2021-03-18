@@ -108,13 +108,13 @@ namespace personalBlogSolution.Services.Catalog.Comments
             return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
         }
 
-        public async Task<ApiResult<bool>> Delete(int commentId)
+        public async Task<ApiResult<bool>> Delete(int id)
         {
-            var comment = await _context.Comments.FindAsync(commentId);
+            var comment = await _context.Comments.FindAsync(id);
 
             if (comment == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + commentId);
+                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + id);
             }
             
             _context.Comments.Remove(comment);

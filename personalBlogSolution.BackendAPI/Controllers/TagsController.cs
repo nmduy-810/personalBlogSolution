@@ -1,67 +1,56 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using personalBlogSolution.Services.Catalog.Comments;
-using personalBlogSolution.ViewModels.Catalog.Comment;
+using personalBlogSolution.Services.Catalog.Tags;
+using personalBlogSolution.ViewModels.Catalog.Tag;
 
 namespace personalBlogSolution.BackendAPI.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
-    public class CommentsController : ControllerBase
+    public class TagsController : Controller
     {
-        private readonly ICommentService _commentService;
+        private readonly ITagService _tagService;
 
-        public CommentsController(ICommentService commentService)
+        public TagsController(ITagService tagService)
         {
-            _commentService = commentService;
+            _tagService = tagService;
         }
-
+        
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll()
         {
-            var comments = await _commentService.GetAll();
-            if (!comments.IsSuccess)
+            var tags = await _tagService.GetAll();
+            if (!tags.IsSuccess)
             {
-                return BadRequest(comments);
+                return BadRequest(tags);
             }
-            return Ok(comments.ResultDataObject);
+            return Ok(tags.ResultDataObject);
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCommentById(int id)
-        {
-            var comment = await _commentService.GetById(id);
-            if (!comment.IsSuccess)
-            {
-                return BadRequest(comment);
-            }
-            return Ok(comment);
-        }
-
+        
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] CommentCreateRequest request)
+        public async Task<IActionResult> Create([FromForm] TagCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _commentService.Create(request);
+            var result = await _tagService.Create(request);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
             }
             return Ok(result);
         }
-
+        
         [HttpPut]
-        public async Task<IActionResult> Update([FromForm] CommentUpdateRequest request)
+        public async Task<IActionResult> Update([FromForm] TagUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var result = await _commentService.Update(request);
+            var result = await _tagService.Update(request);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -76,12 +65,13 @@ namespace personalBlogSolution.BackendAPI.Controllers
             {
                 return BadRequest();
             }
-            var result = await _commentService.Delete(id);
+            var result = await _tagService.Delete(id);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
             }
             return Ok(result);
         }
+        
     }
 }

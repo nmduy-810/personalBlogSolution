@@ -1686,7 +1686,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "FluentValidation": "9.5.2",
-          "Microsoft.AspNetCore.Http.Features": "5.0.4"
+          "Microsoft.AspNetCore.Http.Features": "5.0.4",
+          "personalBlogSolution.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/personalBlogSolution.ViewModels.dll": {}
