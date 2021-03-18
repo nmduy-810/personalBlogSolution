@@ -1670,6 +1670,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "personalBlogSolution.Data": "1.0.0",
+          "personalBlogSolution.Utilities": "1.0.0",
           "personalBlogSolution.ViewModels": "1.0.0"
         },
         "compile": {

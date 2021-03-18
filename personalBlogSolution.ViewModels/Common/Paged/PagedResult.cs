@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace personalBlogSolution.ViewModels.Common
+namespace personalBlogSolution.ViewModels.Common.Paged
 {
     public class PagedResult<T>: PagedResultBase
     {

@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\personalBlogSolution.Data\personalBlogSolution.Data.csproj" />
+      <ProjectReference Include="..\personalBlogSolution.Utilities\personalBlogSolution.Utilities.csproj" />
       <ProjectReference Include="..\personalBlogSolution.ViewModels\personalBlogSolution.ViewModels.csproj" />
     </ItemGroup>
 

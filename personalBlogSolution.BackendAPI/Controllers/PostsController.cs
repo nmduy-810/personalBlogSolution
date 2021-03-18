@@ -9,7 +9,7 @@ namespace personalBlogSolution.BackendAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostsController : Controller
+    public class PostsController : ControllerBase
     {
         private readonly IPostService _postService;
         private readonly IStorageService _storageService;

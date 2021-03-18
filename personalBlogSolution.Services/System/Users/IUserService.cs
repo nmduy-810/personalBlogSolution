@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using personalBlogSolution.ViewModels.Common;
+using personalBlogSolution.ViewModels.Common.Paged;
 using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.Services.System.Users

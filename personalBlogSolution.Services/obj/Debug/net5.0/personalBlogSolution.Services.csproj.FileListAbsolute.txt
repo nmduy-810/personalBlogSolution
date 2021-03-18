@@ -32,3 +32,5 @@
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/ref/personalBlogSolution.Services.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.pdb
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.pdb

@@ -1,4 +1,4 @@
-namespace personalBlogSolution.ViewModels.Common
+namespace personalBlogSolution.ViewModels.Common.Paged
 {
     public class PagingRequestBase: RequestBase
     {

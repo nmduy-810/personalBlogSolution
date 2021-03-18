@@ -1,4 +1,4 @@
-using personalBlogSolution.ViewModels.Common;
+using personalBlogSolution.ViewModels.Common.Paged;
 
 namespace personalBlogSolution.ViewModels.System.Users
 {

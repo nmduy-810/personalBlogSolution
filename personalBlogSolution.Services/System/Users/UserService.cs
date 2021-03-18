@@ -9,9 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using personalBlogSolution.Data.Entities;
-using personalBlogSolution.ViewModels.Common;
+using personalBlogSolution.ViewModels.Common.Paged;
 using personalBlogSolution.ViewModels.System.Users;
-using NotImplementedException = System.NotImplementedException;
 
 namespace personalBlogSolution.Services.System.Users
 {

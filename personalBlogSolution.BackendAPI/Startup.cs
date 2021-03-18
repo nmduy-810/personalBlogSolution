@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using personalBlogSolution.Data.EF;
 using personalBlogSolution.Data.Entities;
+using personalBlogSolution.Services.Catalog.Comments;
 using personalBlogSolution.Services.Catalog.Posts;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.Services.System.Users;
@@ -39,12 +40,16 @@ namespace personalBlogSolution.BackendAPI
                 .AddDefaultTokenProviders();
 
             //Declare Dependency Injection
-            services.AddTransient<IPostService, PostService>();
-            services.AddTransient<IStorageService, FileStorageService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
-            services.AddTransient<IUserService, UserService>();
+            
+            //Catalog Dependency Injection
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IStorageService, FileStorageService>();
+            services.AddTransient<ICommentService, CommentService>();
+            
             
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
