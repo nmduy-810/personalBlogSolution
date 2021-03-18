@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using personalBlogSolution.Data.Entities;
+using personalBlogSolution.Utilities.Constants;
+using personalBlogSolution.ViewModels.Common.ApiResult;
 using personalBlogSolution.ViewModels.Common.Paged;
 using personalBlogSolution.ViewModels.System.Users;
 
@@ -27,7 +29,7 @@ namespace personalBlogSolution.Services.System.Users
             _config = config;
         }
         
-        public async Task<PagedResult<UserVM>> GetUsersPaging(GetUserPagingRequest request)
+        public async Task<ApiResult<PagedResult<UserVM>>> GetUsersPaging(GetUserPagingRequest request)
         {
             var query = _userManager.Users;
             if (!string.IsNullOrEmpty(request.Keyword))
@@ -37,7 +39,7 @@ namespace personalBlogSolution.Services.System.Users
             }
 
             // Paging
-            int totalRow = await query.CountAsync();
+            var totalRow = await query.CountAsync();
 
             var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
                 .Take(request.PageSize)
@@ -59,12 +61,24 @@ namespace personalBlogSolution.Services.System.Users
                 PageSize = request.PageSize,
                 Items = data
             };
-            return pagedResult;
+            
+            return new ApiSuccessResult<PagedResult<UserVM>>(pagedResult);
         }
 
-        public async Task<bool> Register(RegisterRequest request)
+        public async Task<ApiResult<bool>> Register(RegisterRequest request)
         {
-            var user = new AppUser()
+            var user = await _userManager.FindByNameAsync(request.UserName);
+            if (user != null)
+            {
+                return new ApiErrorResult<bool>(SystemConstants.AccountAlreadyExists);
+            }
+            
+            if (await _userManager.FindByEmailAsync(request.Email) != null)
+            {
+                return new ApiErrorResult<bool>("Email has already exists!");
+            }
+            
+            user = new AppUser()
             {
                 Dob = request.Dob,
                 Email = request.Email,
@@ -73,27 +87,28 @@ namespace personalBlogSolution.Services.System.Users
                 UserName = request.UserName,
                 PhoneNumber = request.PhoneNumber,
             };
-
+            
             var result = await _userManager.CreateAsync(user, request.Password);
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
-                return true;
+                return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
             }
-
-            return false;
+            
+            return new ApiErrorResult<bool>(SystemConstants.UnSuccessfulDataCreate);
         }
 
-        public async Task<string> Authenticate(LoginRequest request)
+        public async Task<ApiResult<string>> Authenticate(LoginRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if(user == null)
+            if (user == null)
             {
-                return null;
+                return new ApiErrorResult<string>(SystemConstants.AccountAlreadyExists);
             }
+            
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
-            if(!result.Succeeded)
+            if (!result.Succeeded)
             {
-                return null;
+                return new ApiErrorResult<string>("Login unsuccessfully!");
             }
 
             var role = _userManager.GetRolesAsync(user);
@@ -106,15 +121,15 @@ namespace personalBlogSolution.Services.System.Users
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(_config["Tokens:Issuer"],
                 _config["Tokens:Issuer"],
                 claim,
                 expires: DateTime.Now.AddHours(3),
-                signingCredentials: creds);
+                signingCredentials: credentials);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return new ApiSuccessResult<string>(new JwtSecurityTokenHandler().WriteToken(token));
         }
     }
 }

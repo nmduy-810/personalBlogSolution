@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using personalBlogSolution.ViewModels.Common.ApiResult;
 using personalBlogSolution.ViewModels.Common.Paged;
 using personalBlogSolution.ViewModels.System.Users;
 
@@ -6,10 +7,10 @@ namespace personalBlogSolution.Services.System.Users
 {
     public interface IUserService
     {
-        Task<PagedResult<UserVM>> GetUsersPaging(GetUserPagingRequest request);
+        Task<ApiResult<PagedResult<UserVM>>> GetUsersPaging(GetUserPagingRequest request);
         
-        Task<bool> Register(RegisterRequest request);
+        Task<ApiResult<bool>> Register(RegisterRequest request);
         
-        Task<string> Authenticate(LoginRequest request);
+        Task<ApiResult<string>> Authenticate(LoginRequest request);
     }
 }

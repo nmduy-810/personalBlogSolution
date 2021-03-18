@@ -8,10 +8,16 @@ namespace personalBlogSolution.ViewModels.Common.ApiResult
             IsSuccess = true;
         }
 
-        public ApiSuccessResult(T resultObjectData)
+        public ApiSuccessResult(string message)
         {
             IsSuccess = true;
-            ResultObjectData = resultObjectData;
+            Message = message;
+        }
+
+        public ApiSuccessResult(T resultDataObject)
+        {
+            IsSuccess = true;
+            ResultDataObject = resultDataObject;
         }
     }
 }

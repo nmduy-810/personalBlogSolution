@@ -2,25 +2,21 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using personalBlogSolution.ViewModels.Catalog.Post;
+using personalBlogSolution.ViewModels.Common.ApiResult;
 
 namespace personalBlogSolution.Services.Catalog.Posts
 {
     public interface IPostService
     {
-        //Lấy tất cả các danh sách bài viết
-        Task<List<PostVM>> GetAll();
-
-        //Lấy bài viết theo id của bài viết
-        Task<PostVM> GetById(int postId);
+        Task<ApiResult<List<PostVM>>> GetAll();
         
-        //Tạo bài viết mới
-        Task<int> Create(PostCreateRequest request);
+        Task<ApiResult<PostVM>> GetById(int postId);
+        
+        Task<ApiResult<bool>> Create(PostCreateRequest request);
+        
+        Task<ApiResult<bool>> Update(PostUpdateRequest request);
 
-        //Cập nhật bài viết
-        Task<int> Update(PostUpdateRequest request);
-
-        //Xoá bài viết
-        Task<int> Delete(int id);
+        Task<ApiResult<bool>> Delete(int id);
         
         //Helper Methods
         Task<string> SaveFile(IFormFile file);

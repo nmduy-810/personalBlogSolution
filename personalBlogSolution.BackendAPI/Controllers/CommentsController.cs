@@ -20,6 +20,10 @@ namespace personalBlogSolution.BackendAPI.Controllers
         public async Task<IActionResult> GetAll()
         {
             var comments = await _commentService.GetAll();
+            if (!comments.IsSuccess)
+            {
+                return BadRequest(comments);
+            }
             return Ok(comments);
         }
 
@@ -27,6 +31,10 @@ namespace personalBlogSolution.BackendAPI.Controllers
         public async Task<IActionResult> GetCommentById(int id)
         {
             var comment = await _commentService.GetById(id);
+            if (!comment.IsSuccess)
+            {
+                return BadRequest(comment);
+            }
             return Ok(comment);
         }
 
@@ -38,8 +46,12 @@ namespace personalBlogSolution.BackendAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var comment = await _commentService.Create(request);
-            return Ok(comment);
+            var result = await _commentService.Create(request);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         [HttpPut]
@@ -49,8 +61,12 @@ namespace personalBlogSolution.BackendAPI.Controllers
             {
                 return BadRequest();
             }
-            var comment = await _commentService.Update(request);
-            return Ok(comment);
+            var result = await _commentService.Update(request);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
@@ -60,9 +76,12 @@ namespace personalBlogSolution.BackendAPI.Controllers
             {
                 return BadRequest();
             }
-            var comment = await _commentService.Delete(id);
-            
-            return Ok(comment);
+            var result = await _commentService.Delete(id);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
     }
 }

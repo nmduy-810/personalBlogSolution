@@ -24,6 +24,10 @@ namespace personalBlogSolution.BackendAPI.Controllers
         public async Task<IActionResult> Get()
         {
             var posts = await _postService.GetAll();
+            if (!posts.IsSuccess)
+            {
+                return BadRequest(posts);
+            }
             return Ok(posts);
         }
 
@@ -31,11 +35,10 @@ namespace personalBlogSolution.BackendAPI.Controllers
         public async Task<IActionResult> GetPostById(int postId)
         {
             var post = await _postService.GetById(postId);
-            if (post == null)
+            if (!post.IsSuccess)
             {
-                return BadRequest("Cannot find post");
+                return BadRequest(post);
             }
-
             return Ok(post);
         }
 
@@ -47,35 +50,34 @@ namespace personalBlogSolution.BackendAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var post = await _postService.Create(request);
-
-            return Ok();
+            var result = await _postService.Create(request);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromForm] PostUpdateRequest request)
         {
-            var affectedResult = await _postService.Update(request);
-            if (affectedResult == 0)
+            var result = await _postService.Update(request);
+            if (!result.IsSuccess)
             {
-                return BadRequest("Cannot find post");
+                return BadRequest(result);
             }
-
-            return Ok();
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var affectedResult = await _postService.Delete(id);
-
-            if (affectedResult == 0)
+            var result = await _postService.Delete(id);
+            if (!result.IsSuccess)
             {
-                return BadRequest();
+                return BadRequest(result);
             }
-
-            return Ok();
+            return Ok(result);
         }
-        
     }
 }

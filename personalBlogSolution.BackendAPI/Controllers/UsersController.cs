@@ -29,32 +29,32 @@ namespace personalBlogSolution.BackendAPI.Controllers
         public async Task<IActionResult> Register([FromForm] RegisterRequest request)
         {
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
+            }
 
             var result = await _userService.Register(request);
-            if (!result)
+            if (!result.IsSuccess)
             {
-                return BadRequest(false);
+                return BadRequest(result);
             }
-            return Ok(true);
+            return Ok(result);
         }
         
         [HttpPost("authenticate")]
         [AllowAnonymous]
         public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
         {
-            if(!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            }
 
-            var resultToken = await _userService.Authenticate(request);
-            if(string.IsNullOrEmpty(resultToken))
+            var result = await _userService.Authenticate(request);
+
+            if (string.IsNullOrEmpty(result.ResultDataObject))
             {
-                return BadRequest("Username or password is incorrect");
-            } 
-
-            return Ok(resultToken);
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
     }
 }

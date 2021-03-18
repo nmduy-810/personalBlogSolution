@@ -9,8 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using personalBlogSolution.Data.EF;
 using personalBlogSolution.Data.Entities;
 using personalBlogSolution.Services.Common;
-using personalBlogSolution.Utilities.Exceptions;
+using personalBlogSolution.Utilities.Constants;
 using personalBlogSolution.ViewModels.Catalog.Post;
+using personalBlogSolution.ViewModels.Common.ApiResult;
 
 namespace personalBlogSolution.Services.Catalog.Posts
 {
@@ -27,173 +28,146 @@ namespace personalBlogSolution.Services.Catalog.Posts
             _storageService = storageService;
         }
 
-        public async Task<List<PostVM>> GetAll()
+        public async Task<ApiResult<List<PostVM>>> GetAll()
         {
-            try
-            {
-                //1. Select Join Query
-                var query = from p in _context.Posts
-                    select new {p};
+            //1. Select Join Query
+            var query = from p in _context.Posts
+                select new {p};
 
-                //2. Get Data
-                var data = await query.Select(item => new PostVM()
-                {
-                    Id = item.p.Id,
-                    Title = item.p.Title,
-                    Summary = item.p.Summary,
-                    SeoTitle = item.p.SeoTitle,
-                    DateCreated = item.p.DateCreated,
-                    DateModified = item.p.DateModified,
-                    ViewCount = item.p.ViewCount,
-                    ParentId = item.p.ParentId
-                }).ToListAsync();
-
-                return data;
-            }
-            catch
+            //2. Get Data
+            var data = await query.Select(item => new PostVM()
             {
-                throw new PersonalBlogSolutionException("Cannot query data from database!! ");
-            }
+                Id = item.p.Id,
+                Title = item.p.Title,
+                Summary = item.p.Summary,
+                SeoTitle = item.p.SeoTitle,
+                DateCreated = item.p.DateCreated,
+                DateModified = item.p.DateModified,
+                ViewCount = item.p.ViewCount,
+                ParentId = item.p.ParentId
+            }).ToListAsync();
+
+            return data == null ? new ApiErrorResult<List<PostVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<PostVM>>(data);
         }
 
-        public async Task<PostVM> GetById(int postId)
+        public async Task<ApiResult<PostVM>> GetById(int postId)
         {
-            try
+            //1. Find id of post
+            var post = await _context.Posts.FindAsync(postId);
+
+            if (post == null)
             {
-                //1. Find id of post
-                var post = await _context.Posts.FindAsync(postId);
-
-                if (post == null)
-                {
-                    throw new Exception($"Cannot find a post with id : {postId}");
-                }
-
-                //2. Select category data
-                var categories = await (from c in _context.Categories
-                    join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
-                    join pic in _context.PostInCategories on c.Id equals pic.CategoryId
-                    where pic.PostId == postId
-                    select ct.Name).ToListAsync();
-
-                //3. Select image data
-                var image = await _context.PostImages.Where(x => x.PostId == postId && x.IsDefault)
-                    .FirstOrDefaultAsync();
-
-                var postViewModel = new PostVM()
-                {
-                    Id = post.Id,
-                    Title = post.Title,
-                    Summary = post.Summary,
-                    SeoTitle = post.SeoTitle,
-                    ViewCount = post.ViewCount,
-                    DateCreated = post.DateCreated,
-                    DateModified = post.DateModified,
-                    ParentId = post.ParentId,
-                    Categories = categories,
-                    ThumbnailImage = image != null ? image.ImagePath : "no-image.jpg"
-                };
-                return postViewModel;
+                return new ApiErrorResult<PostVM>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + postId);
             }
-            catch
+
+            //2. Select category data
+            var categories = await (from c in _context.Categories
+                join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
+                join pic in _context.PostInCategories on c.Id equals pic.CategoryId
+                where pic.PostId == postId
+                select ct.Name).ToListAsync();
+
+            //3. Select image data
+            var image = await _context.PostImages.Where(x => x.PostId == postId && x.IsDefault)
+                .FirstOrDefaultAsync();
+
+            var data = new PostVM()
             {
-                throw new PersonalBlogSolutionException($"Cannot find post id: {postId}");
-            }
+                Id = post.Id,
+                Title = post.Title,
+                Summary = post.Summary,
+                SeoTitle = post.SeoTitle,
+                ViewCount = post.ViewCount,
+                DateCreated = post.DateCreated,
+                DateModified = post.DateModified,
+                ParentId = post.ParentId,
+                Categories = categories,
+                ThumbnailImage = image != null ? image.ImagePath : "no-image.jpg"
+            };
+            
+            return new ApiSuccessResult<PostVM>(data);
         }
 
-        public async Task<int> Create(PostCreateRequest request)
+        public async Task<ApiResult<bool>> Create(PostCreateRequest request)
         {
-            try
+            var post = new Post()
             {
-                var post = new Post()
-                {
-                    Title = request.Title,
-                    Summary = request.Summary,
-                    SeoTitle = request.SeoTitle,
-                    ViewCount = 0,
-                    DateCreated = DateTime.Now,
-                    DateModified = DateTime.Now,
-                    UserId = request.UserId
-                };
+                Title = request.Title,
+                Summary = request.Summary,
+                SeoTitle = request.SeoTitle,
+                ViewCount = 0,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now,
+                UserId = request.UserId
+            };
 
-                if (request.ThumbnailImage != null)
+            if (request.ThumbnailImage != null)
+            {
+                post.PostImages = new List<PostImage>()
                 {
-                    post.PostImages = new List<PostImage>()
+                    new PostImage()
                     {
-                        new PostImage()
-                        {
-                            Caption = "Thumbnail Image",
-                            DateCreated = DateTime.Now,
-                            FileSize = request.ThumbnailImage.Length,
-                            ImagePath = await this.SaveFile(request.ThumbnailImage),
-                            IsDefault = true,
-                            SortOrder = 1
-                        }
-                    };
-                }
+                        Caption = "Thumbnail Image",
+                        DateCreated = DateTime.Now,
+                        FileSize = request.ThumbnailImage.Length,
+                        ImagePath = await this.SaveFile(request.ThumbnailImage),
+                        IsDefault = true,
+                        SortOrder = 1
+                    }
+                };
+            }
 
-                await _context.Posts.AddAsync(post);
+            var result =  await _context.Posts.AddAsync(post);
+            
+            await _context.SaveChangesAsync();
+            return result == null ? new ApiErrorResult<bool>("Post can't create") : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+        }
+
+        public async Task<ApiResult<bool>> Update(PostUpdateRequest request)
+        {
+            var post = await _context.Posts.FindAsync(request.Id);
+            if (post == null)
+            {
+                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + request.Id);
+            }
+
+            post.Title = request.Title;
+            post.Summary = request.Summary;
+            post.SeoTitle = request.SeoTitle;
+
+            if (request.ThumbnailImage == null)
+            {
                 await _context.SaveChangesAsync();
-                return post.Id;
+                return new ApiSuccessResult<bool>();
             }
-            catch
-            {
-                throw new PersonalBlogSolutionException("Cannot create a post data!!");
-            }
+            var thumbnailImage = await _context.PostImages.FirstOrDefaultAsync(x => x.IsDefault && x.PostId == request.Id);
+
+            thumbnailImage.FileSize = request.ThumbnailImage.Length;
+            thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
+            _context.PostImages.Update(thumbnailImage);
+
+            await _context.SaveChangesAsync();
+            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
         }
 
-        public async Task<int> Update(PostUpdateRequest request)
+        public async Task<ApiResult<bool>> Delete(int id)
         {
-            try
+            var post = await _context.Posts.FindAsync(id);
+            if (post == null)
             {
-                var post = await _context.Posts.FindAsync(request.Id);
-                if (post == null)
-                {
-                    throw new Exception($"Cannot find a post with id : {request.Id}");
-                }
-
-                post.Title = request.Title;
-                post.Summary = request.Summary;
-                post.SeoTitle = request.SeoTitle;
-
-                if (request.ThumbnailImage == null) return await _context.SaveChangesAsync();
-                var thumbnailImage =
-                    await _context.PostImages.FirstOrDefaultAsync(x => x.IsDefault && x.PostId == request.Id);
-
-                thumbnailImage.FileSize = request.ThumbnailImage.Length;
-                thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
-                _context.PostImages.Update(thumbnailImage);
-
-                return await _context.SaveChangesAsync();
+                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + id);
             }
-            catch
+
+            var images = _context.PostImages.Where(x => x.PostId == id);
+            foreach (var image in images)
             {
-                throw new PersonalBlogSolutionException($"Cannot update a post with id : {request.Id}");
+                await _storageService.DeleteFileAsync(image.ImagePath);
             }
-        }
 
-        public async Task<int> Delete(int id)
-        {
-            try
-            {
-                var post = await _context.Posts.FindAsync(id);
-                if (post == null)
-                {
-                    throw new Exception($"Cannot find a post: {id}");
-                }
-
-                var images = _context.PostImages.Where(x => x.PostId == id);
-                foreach (var image in images)
-                {
-                    await _storageService.DeleteFileAsync(image.ImagePath);
-                }
-
-                _context.Posts.Remove(post);
-                return await _context.SaveChangesAsync();
-            }
-            catch
-            {
-                throw new PersonalBlogSolutionException($"Cannot delete a post: {id}");
-            }
+            _context.Posts.Remove(post);
+            
+            await _context.SaveChangesAsync();
+            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
         }
 
         //Helper Methods

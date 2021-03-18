@@ -9,6 +9,6 @@ namespace personalBlogSolution.ViewModels.Common.ApiResult
         public string Message { get; set; }
 
         //Return data
-        public T ResultObjectData { get; set; }
+        public T ResultDataObject { get; set; }
     }
 }

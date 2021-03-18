@@ -55,7 +55,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
             }
 
             //Find comment id in post
-            var post = await _context.Posts.Where(x => x.Id == comment.Id).FirstOrDefaultAsync();
+            var post = await _context.Posts.Where(x => x.Id == comment.PostId).FirstOrDefaultAsync();
 
             var data = new CommentVM()
             {
@@ -87,8 +87,9 @@ namespace personalBlogSolution.Services.Catalog.Comments
             };
 
             var result = await _context.Comments.AddAsync(comment);
-
-            return result == null ? new ApiErrorResult<bool>("Comment can't create") : new ApiResult<bool>();
+            
+            await _context.SaveChangesAsync();
+            return result == null ? new ApiErrorResult<bool>("Comment data can't create") : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
         }
 
         public async Task<ApiResult<bool>> Update(CommentUpdateRequest request)
@@ -104,8 +105,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
             comment.Summary = request.Summary;
 
             await _context.SaveChangesAsync();
-
-            return new ApiResult<bool>();
+            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
         }
 
         public async Task<ApiResult<bool>> Delete(int commentId)
@@ -120,7 +120,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
             _context.Comments.Remove(comment);
             
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>();
+            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
         }
     }
 }
