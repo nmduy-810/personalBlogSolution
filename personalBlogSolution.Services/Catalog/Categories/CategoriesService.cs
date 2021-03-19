@@ -38,5 +38,22 @@ namespace personalBlogSolution.Services.Catalog.Categories
 
             return data == null ? new ApiErrorResult<List<CategoryVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<CategoryVM>>(data);
         }
+
+        public async Task<ApiResult<CategoryVM>> GetCategoryById(string languageId, int id)
+        {
+            var query = from c in _context.Categories
+                join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
+                where ct.LanguageId == languageId && c.Id == id
+                select new { c, ct };
+            
+            var data =  await query.Select(x => new CategoryVM()
+            {
+                Id = x.c.Id,
+                Name = x.ct.Name,
+                ParentId = x.c.ParentId
+            }).FirstOrDefaultAsync();
+            
+            return new ApiSuccessResult<CategoryVM>(data);
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace personalBlogSolution.ViewModels.Catalog.Category
         public string SeoDescription { get; set; }
         
         public string SeoAlias { get; set; }
+
+        public int ParentId { get; set; }
     }
 }

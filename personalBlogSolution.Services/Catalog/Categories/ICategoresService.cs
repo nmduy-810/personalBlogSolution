@@ -8,5 +8,8 @@ namespace personalBlogSolution.Services.Catalog.Categories
     public interface ICategoriesService
     {
         Task<ApiResult<List<CategoryVM>>> GetAll(string languageId);
+
+        Task<ApiResult<CategoryVM>> GetCategoryById(string languageId, int id);
+        
     }
 }

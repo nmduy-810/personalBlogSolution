@@ -25,5 +25,17 @@ namespace personalBlogSolution.BackendAPI.Controllers
 
             return Ok(categories.ResultDataObject);
         }
+
+        [HttpGet("{id}/{languageId}")]
+        public async Task<IActionResult> GetCategoryById(string languageId, int id)
+        {
+            var category = await _categories.GetCategoryById(languageId, id);
+            
+            if (!category.IsSuccess)
+            {
+                return BadRequest(category.ResultDataObject);
+            }
+            return Ok(category);
+        }
     }
 }

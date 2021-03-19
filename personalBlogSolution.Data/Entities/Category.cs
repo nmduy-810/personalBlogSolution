@@ -12,7 +12,7 @@ namespace personalBlogSolution.Data.Entities
 
         public bool IsShowOnHome { get; set; }
 
-        public int? ParentId { get; set; }
+        public int ParentId { get; set; }
 
         public Status Status { get; set; }
     

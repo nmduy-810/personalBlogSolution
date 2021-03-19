@@ -60,7 +60,7 @@ namespace personalBlogSolution.Data.Extensions
                 {
                     Id = 1,
                     IsShowOnHome = true,
-                    ParentId = null,
+                    ParentId = 1,
                     SortOrder = 1,
                     Status = Status.Active
                 },
@@ -68,7 +68,7 @@ namespace personalBlogSolution.Data.Extensions
                 {
                     Id = 2,
                     IsShowOnHome = true,
-                    ParentId = null,
+                    ParentId = 1,
                     SortOrder = 2,
                     Status = Status.Active
                 },
@@ -76,7 +76,7 @@ namespace personalBlogSolution.Data.Extensions
                 {
                     Id = 3,
                     IsShowOnHome = true,
-                    ParentId = null,
+                    ParentId = 1,
                     SortOrder = 3,
                     Status = Status.Active
                 },
@@ -84,7 +84,7 @@ namespace personalBlogSolution.Data.Extensions
                 {
                     Id = 4,
                     IsShowOnHome = true,
-                    ParentId = null,
+                    ParentId = 1,
                     SortOrder = 4,
                     Status = Status.Active
                 },
@@ -92,7 +92,7 @@ namespace personalBlogSolution.Data.Extensions
                 {
                     Id = 5,
                     IsShowOnHome = true,
-                    ParentId = null,
+                    ParentId = 1,
                     SortOrder = 5,
                     Status = Status.Active
                 }
