@@ -18,6 +18,7 @@ using personalBlogSolution.Services.Catalog.Contacts;
 using personalBlogSolution.Services.Catalog.Posts;
 using personalBlogSolution.Services.Catalog.Tags;
 using personalBlogSolution.Services.Common;
+using personalBlogSolution.Services.System.Languages;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.Utilities.Constants;
 using personalBlogSolution.ViewModels.System.Users;
@@ -37,16 +38,17 @@ namespace personalBlogSolution.BackendAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PersonalBlogDbContext>(options => options
-                .UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectString)));
+                .UseSqlServer(Configuration.GetConnectionString(SystemConstants.AppSettings.MainConnectString)));
 
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<PersonalBlogDbContext>()
                 .AddDefaultTokenProviders();
 
-            //Declare Dependency Injection
+            //System Dependency Injection
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<ILanguageService, LanguageService>();
             
             //Catalog Dependency Injection
             services.AddTransient<IPostService, PostService>();
@@ -55,7 +57,7 @@ namespace personalBlogSolution.BackendAPI
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<ITagService, TagService>();
-            
+
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
             services.AddSwaggerGen(c =>

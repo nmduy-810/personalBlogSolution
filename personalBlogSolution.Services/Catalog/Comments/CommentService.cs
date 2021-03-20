@@ -41,7 +41,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
             }).ToListAsync();
             
             //3. Return data
-            return data == null ? new ApiErrorResult<List<CommentVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<CommentVM>>(data);
+            return data == null ? new ApiErrorResult<List<CommentVM>>(SystemConstants.Message.NotFoundDataMessage) : new ApiSuccessResult<List<CommentVM>>(data);
         }
 
         public async Task<ApiResult<CommentVM>> GetById(int commentId)
@@ -51,7 +51,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
 
             if (comment == null)
             {
-                return new ApiErrorResult<CommentVM>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + commentId);
+                return new ApiErrorResult<CommentVM>(SystemConstants.Message.CanNotFindIdMessage + "comment table with Id: " + commentId);
             }
 
             //Find comment id in post
@@ -89,7 +89,7 @@ namespace personalBlogSolution.Services.Catalog.Comments
             var result = await _context.Comments.AddAsync(comment);
             
             await _context.SaveChangesAsync();
-            return result == null ? new ApiErrorResult<bool>("Comment data can't create") : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+            return result == null ? new ApiErrorResult<bool>("Comment data can't create") : new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Update(CommentUpdateRequest request)
@@ -98,14 +98,14 @@ namespace personalBlogSolution.Services.Catalog.Comments
 
             if (comment == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + request.Id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "comment table with Id: " + request.Id);
             }
 
             comment.Title = request.Title;
             comment.Summary = request.Summary;
 
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
+            return new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Delete(int id)
@@ -114,13 +114,13 @@ namespace personalBlogSolution.Services.Catalog.Comments
 
             if (comment == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "comment table with Id: " + id);
             }
             
             _context.Comments.Remove(comment);
             
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
+            return new ApiSuccessResult<bool>();
         }
     }
 }

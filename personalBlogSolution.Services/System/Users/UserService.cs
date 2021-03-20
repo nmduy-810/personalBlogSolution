@@ -65,12 +65,12 @@ namespace personalBlogSolution.Services.System.Users
             return new ApiSuccessResult<PagedResult<UserVM>>(pagedResult);
         }
 
-        public async Task<ApiResult<bool>> Register(RegisterRequest request)
+        public async Task<ApiResult<bool>> Register(UserRegisterRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user != null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.AccountAlreadyExists);
+                return new ApiErrorResult<bool>(SystemConstants.Message.AccountAlreadyExists);
             }
             
             if (await _userManager.FindByEmailAsync(request.Email) != null)
@@ -91,10 +91,10 @@ namespace personalBlogSolution.Services.System.Users
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
-                return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+                return new ApiSuccessResult<bool>();
             }
             
-            return new ApiErrorResult<bool>(SystemConstants.DataNotCreateSuccessful);
+            return new ApiErrorResult<bool>(SystemConstants.Message.DataNotCreateSuccessful);
         }
 
         public async Task<ApiResult<string>> Authenticate(LoginRequest request)
@@ -102,7 +102,7 @@ namespace personalBlogSolution.Services.System.Users
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user == null)
             {
-                return new ApiErrorResult<string>(SystemConstants.AccountAlreadyExists);
+                return new ApiErrorResult<string>(SystemConstants.Message.AccountAlreadyExists);
             }
             
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);

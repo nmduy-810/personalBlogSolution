@@ -32,7 +32,7 @@ namespace personalBlogSolution.Services.Catalog.Contacts
                 Status = item.Status
             }).ToListAsync();
         
-            return data == null ? new ApiErrorResult<List<ContactVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<ContactVM>>(data);
+            return data == null ? new ApiErrorResult<List<ContactVM>>(SystemConstants.Message.NotFoundDataMessage) : new ApiSuccessResult<List<ContactVM>>(data);
         }
         
         public async Task<ApiResult<bool>> Create(ContactCreateRequest request)
@@ -51,7 +51,7 @@ namespace personalBlogSolution.Services.Catalog.Contacts
         
             return result == null
                 ? new ApiErrorResult<bool>("Contact data can't create")
-                : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+                : new ApiSuccessResult<bool>();
         }
         
         public async Task<ApiResult<bool>> Update(ContactUpdateRequest request)
@@ -60,7 +60,7 @@ namespace personalBlogSolution.Services.Catalog.Contacts
         
             if (contact == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "comment table with Id: " + request.Id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "comment table with Id: " + request.Id);
             }
         
             contact.Name = request.Name;
@@ -70,7 +70,7 @@ namespace personalBlogSolution.Services.Catalog.Contacts
             contact.Status = request.Status;
         
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
+            return new ApiSuccessResult<bool>();
         }
         
         public async Task<ApiResult<bool>> Delete(int id)
@@ -79,13 +79,13 @@ namespace personalBlogSolution.Services.Catalog.Contacts
         
             if (contact == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "contact table with Id: " + id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "contact table with Id: " + id);
             }
             
             _context.Contacts.Remove(contact);
             
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
+            return new ApiSuccessResult<bool>();
         }
     }
 }

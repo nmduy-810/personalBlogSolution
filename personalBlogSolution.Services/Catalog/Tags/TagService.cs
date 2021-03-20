@@ -31,7 +31,7 @@ namespace personalBlogSolution.Services.Catalog.Tags
                 ViewCount = item.ViewCount
             }).ToListAsync();
         
-            return data == null ? new ApiErrorResult<List<TagVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<TagVM>>(data);
+            return data == null ? new ApiErrorResult<List<TagVM>>(SystemConstants.Message.NotFoundDataMessage) : new ApiSuccessResult<List<TagVM>>(data);
         }
 
         public async Task<ApiResult<bool>> Create(TagCreateRequest request)
@@ -48,8 +48,8 @@ namespace personalBlogSolution.Services.Catalog.Tags
             await _context.SaveChangesAsync();
         
             return result == null
-                ? new ApiErrorResult<bool>(SystemConstants.DataNotCreateSuccessful)
-                : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+                ? new ApiErrorResult<bool>(SystemConstants.Message.DataNotCreateSuccessful)
+                : new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Update(TagUpdateRequest request)
@@ -58,7 +58,7 @@ namespace personalBlogSolution.Services.Catalog.Tags
         
             if (tag == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "tag table with Id: " + request.Id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "tag table with Id: " + request.Id);
             }
 
             tag.Title = request.Title;
@@ -66,7 +66,7 @@ namespace personalBlogSolution.Services.Catalog.Tags
             tag.SeoDescription = request.SeoDescription;
         
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
+            return new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Delete(int id)
@@ -75,13 +75,13 @@ namespace personalBlogSolution.Services.Catalog.Tags
         
             if (tag == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "tag table with Id: " + id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "tag table with Id: " + id);
             }
             
             _context.Tags.Remove(tag);
             
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
+            return new ApiSuccessResult<bool>();
         }
     }
 }

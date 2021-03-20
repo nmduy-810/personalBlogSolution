@@ -6,7 +6,6 @@ using personalBlogSolution.Data.EF;
 using personalBlogSolution.Utilities.Constants;
 using personalBlogSolution.ViewModels.Catalog.Category;
 using personalBlogSolution.ViewModels.Common.ApiResult;
-using NotImplementedException = System.NotImplementedException;
 
 namespace personalBlogSolution.Services.Catalog.Categories
 {
@@ -36,7 +35,7 @@ namespace personalBlogSolution.Services.Catalog.Categories
                 
             }).ToListAsync();
 
-            return data == null ? new ApiErrorResult<List<CategoryVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<CategoryVM>>(data);
+            return data == null ? new ApiErrorResult<List<CategoryVM>>(SystemConstants.Message.NotFoundDataMessage) : new ApiSuccessResult<List<CategoryVM>>(data);
         }
 
         public async Task<ApiResult<CategoryVM>> GetCategoryById(string languageId, int id)

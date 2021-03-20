@@ -4,4 +4,17 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\personalBlogSolution.ViewModels\personalBlogSolution.ViewModels.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\User" />
+    </ItemGroup>
+
 </Project>

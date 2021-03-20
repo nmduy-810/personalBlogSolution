@@ -47,7 +47,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
                 ParentId = item.p.ParentId
             }).ToListAsync();
 
-            return data == null ? new ApiErrorResult<List<PostVM>>(SystemConstants.NotFoundDataMessage) : new ApiSuccessResult<List<PostVM>>(data);
+            return data == null ? new ApiErrorResult<List<PostVM>>(SystemConstants.Message.NotFoundDataMessage) : new ApiSuccessResult<List<PostVM>>(data);
         }
 
         public async Task<ApiResult<PostVM>> GetById(int postId)
@@ -57,7 +57,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
 
             if (post == null)
             {
-                return new ApiErrorResult<PostVM>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + postId);
+                return new ApiErrorResult<PostVM>(SystemConstants.Message.CanNotFindIdMessage + "post table with Id: " + postId);
             }
 
             //2. Select category data
@@ -120,7 +120,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
             var result =  await _context.Posts.AddAsync(post);
             
             await _context.SaveChangesAsync();
-            return result == null ? new ApiErrorResult<bool>("Post can't create") : new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataCreate);
+            return result == null ? new ApiErrorResult<bool>("Post can't create") : new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Update(PostUpdateRequest request)
@@ -128,7 +128,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
             var post = await _context.Posts.FindAsync(request.Id);
             if (post == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + request.Id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "post table with Id: " + request.Id);
             }
 
             post.Title = request.Title;
@@ -147,7 +147,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
             _context.PostImages.Update(thumbnailImage);
 
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataUpdate);
+            return new ApiSuccessResult<bool>();
         }
 
         public async Task<ApiResult<bool>> Delete(int id)
@@ -155,7 +155,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
             var post = await _context.Posts.FindAsync(id);
             if (post == null)
             {
-                return new ApiErrorResult<bool>(SystemConstants.CanNotFindIdMessage + "post table with Id: " + id);
+                return new ApiErrorResult<bool>(SystemConstants.Message.CanNotFindIdMessage + "post table with Id: " + id);
             }
 
             var images = _context.PostImages.Where(x => x.PostId == id);
@@ -167,7 +167,7 @@ namespace personalBlogSolution.Services.Catalog.Posts
             _context.Posts.Remove(post);
             
             await _context.SaveChangesAsync();
-            return new ApiSuccessResult<bool>(SystemConstants.SuccessfulDataDelete);
+            return new ApiSuccessResult<bool>();
         }
 
         //Helper Methods

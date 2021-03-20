@@ -9,7 +9,7 @@ namespace personalBlogSolution.Services.System.Users
     {
         Task<ApiResult<PagedResult<UserVM>>> GetUsersPaging(GetUserPagingRequest request);
         
-        Task<ApiResult<bool>> Register(RegisterRequest request);
+        Task<ApiResult<bool>> Register(UserRegisterRequest request);
         
         Task<ApiResult<string>> Authenticate(LoginRequest request);
     }

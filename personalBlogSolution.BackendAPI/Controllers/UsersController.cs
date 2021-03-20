@@ -26,7 +26,7 @@ namespace personalBlogSolution.BackendAPI.Controllers
         
         [HttpPost("register")]
         
-        public async Task<IActionResult> Register([FromForm] RegisterRequest request)
+        public async Task<IActionResult> Register([FromForm] UserRegisterRequest request)
         {
             if (!ModelState.IsValid)
             {
