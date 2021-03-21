@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace personalBlogSolution.ViewModels.System.Users
 {
-    public class LoginRequestValidator:AbstractValidator<LoginRequest>
+    public class LoginRequestValidator : AbstractValidator<LoginRequest>
     {
         public LoginRequestValidator()
         {

@@ -39,7 +39,7 @@ namespace personalBlogSolution.AdminApp
 
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
-            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
+            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
