@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using personalBlogSolution.AdminApp.Services;
+using personalBlogSolution.AdminApp.Services.Users;
 using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.AdminApp.Controllers

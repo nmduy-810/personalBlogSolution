@@ -1,0 +1,162 @@
+@model personalBlogSolution.ViewModels.Common.Paged.PagedResult<personalBlogSolution.ViewModels.System.Users.UserVM>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<section class="content contact">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Manage
+                <small class="text-muted">List of user</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Compass</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">User</a></li>
+                    <li class="breadcrumb-item active">Manage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card action_bar">
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-lg-1 col-md-2 col-3">
+                                <div class="checkbox inlineblock delete_all">
+                                    <input id="deleteall" type="checkbox">
+                                    <label for="deleteall">
+                                        All
+                                    </label>
+                                </div>                                
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-6">
+                                <div class="input-group search">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-addon">
+                                        <i class="zmdi zmdi-search"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-5 col-3">
+                                <div class="btn-group hidden-sm-down" role="group">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-simple dropdown-toggle btn-round" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="zmdi zmdi-label"></i>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right slideDown">
+                                            <li>
+                                                <a href="javascript:void(0);">Family</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Work</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Google</a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                                <a href="javascript:void(0);">Create a Label</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button onclick="location.href='@Url.Action("Create", "User")'" type="button" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round hidden-sm-down">
+                                    <i class="zmdi zmdi-plus-circle"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round hidden-sm-down">
+                                    <i class="zmdi zmdi-archive"></i>
+                                </button>
+                                <button type="button" class="btn btn-icon btn-simple btn-icon-mini btn-round btn-danger float-md-right">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body table-responsive">
+                        <table class="table table-hover m-b-0 c_list">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>                                    
+                                    <th data-breakpoints="xs">Phone</th>
+                                    <th data-breakpoints="xs sm md">Email</th>
+                                    <th data-breakpoints="xs sm md">User name</th>
+                                    <th data-breakpoints="xs">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="delete_2" type="checkbox">
+                                            <label for="delete_2">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img src="~/images/xs/avatar-user.png" class="rounded-circle avatar" alt="">
+                                        @{
+                                            var fullName = item.FirstName +" "+ item.LastName;
+                                        }
+                                        <a href="#" onclick="location.href='@Url.Action("Details", "User", new { id = item.Id })'">
+                                            <p class="c_name">@Html.DisplayFor(modelItem => fullName) <span class="badge badge-default m-l-10 hidden-sm-down">Administrator</span></p>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="phone"><i class="zmdi zmdi-phone m-r-10"></i>@Html.DisplayFor(modelItem => item.PhoneNumber)</span>
+                                    </td>
+                                    <td>
+                                        <span class="email"><a href="javascript:void(0);" title=""><i class="zmdi zmdi-email m-r-5"></i> @Html.DisplayFor(modelItem => item.Email)</a></span>
+                                    </td>
+                                    <td>
+                                        <address><i class="zmdi zmdi-account"></i>@Html.DisplayFor(modelItem => item.UserName)</address>
+                                    </td>
+                                    <td>
+                                        <button onclick="location.href='@Url.Action("Edit", "User", new { id = item.Id })'" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round"><i class="zmdi zmdi-edit"></i></button>
+                                        <button onclick="location.href='@Url.Action("Delete", "User", new { id = item.Id })'" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round"><i class="zmdi zmdi-delete"></i></button>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="body">                            
+                        <ul class="pagination pagination-primary m-b-0">
+                            <li class="page-item"><a class="page-link" href="#"><i class="zmdi zmdi-arrow-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="zmdi zmdi-arrow-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@section Scripts {
+    <script src="~/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+    <script src="~/bundles/vendorscripts.bundle.js"></script> <!-- slim scroll, waves Scripts Plugin Js -->
+    <script src="~/bundles/mainscripts.bundle.js"></script>
+    <script src="~/bundles/footable.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="~/js/pages/tables/footable.js"></script><!-- Custom Js -->
+}

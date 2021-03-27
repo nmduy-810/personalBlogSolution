@@ -8,10 +8,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using personalBlogSolution.AdminApp.Services;
+using personalBlogSolution.AdminApp.Services.Users;
+using personalBlogSolution.Data.EF;
+using personalBlogSolution.Data.Entities;
 using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.AdminApp
@@ -29,23 +32,22 @@ namespace personalBlogSolution.AdminApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = "/Login/Index";
-                    options.AccessDeniedPath = "/Login/Index";
-                });
-
-            services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
-
-            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddTransient<IUserApiClient, UserApiClient>();
+            
+            services.AddHttpContextAccessor();
+            
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/Login/Index/";
+                options.AccessDeniedPath = "/Login/Index";
+            });
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            
+            services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+            
+            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
+
+            services.AddTransient<IUserApiClient, UserApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,13 +66,13 @@ namespace personalBlogSolution.AdminApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            
             app.UseAuthentication();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
             app.UseSession();
 
             app.UseEndpoints(endpoints =>

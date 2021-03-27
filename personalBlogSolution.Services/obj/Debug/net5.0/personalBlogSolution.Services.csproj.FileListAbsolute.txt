@@ -20,8 +20,10 @@
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/ref/personalBlogSolution.Services.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Services.pdb
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.ViewModels.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Data.pdb
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.pdb
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.ViewModels.pdb
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.csprojAssemblyReference.cache
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.GeneratedMSBuildEditorConfig.editorconfig
@@ -32,5 +34,3 @@
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/ref/personalBlogSolution.Services.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/obj/Debug/net5.0/personalBlogSolution.Services.pdb
-/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.dll
-/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Services/bin/Debug/net5.0/personalBlogSolution.Utilities.pdb

@@ -14,14 +14,14 @@
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.ViewModels.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/ref/personalBlogSolution.ViewModels.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.ViewModels.pdb
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.Data.dll
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.Data.pdb
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.csprojAssemblyReference.cache
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.AssemblyInfoInputs.cache
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.AssemblyInfo.cs
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.csproj.CoreCompileInputs.cache
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.csproj.CopyComplete
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/ref/personalBlogSolution.ViewModels.dll
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.pdb
-/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.Data.dll
-/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/bin/Debug/net5.0/personalBlogSolution.Data.pdb
-/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/obj/Debug/net5.0/personalBlogSolution.ViewModels.csproj.CopyComplete

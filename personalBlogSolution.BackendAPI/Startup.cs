@@ -19,6 +19,7 @@ using personalBlogSolution.Services.Catalog.Posts;
 using personalBlogSolution.Services.Catalog.Tags;
 using personalBlogSolution.Services.Common;
 using personalBlogSolution.Services.System.Languages;
+using personalBlogSolution.Services.System.Roles;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.Utilities.Constants;
 using personalBlogSolution.ViewModels.System.Users;
@@ -49,6 +50,7 @@ namespace personalBlogSolution.BackendAPI
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<ILanguageService, LanguageService>();
+            services.AddTransient<IRoleService, RoleService>();
             
             //Catalog Dependency Injection
             services.AddTransient<IPostService, PostService>();

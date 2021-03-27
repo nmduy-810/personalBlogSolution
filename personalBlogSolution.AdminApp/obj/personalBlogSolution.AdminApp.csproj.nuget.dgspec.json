@@ -26,6 +26,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj": {
+                "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj"
+              },
               "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj": {
                 "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.ViewModels/personalBlogSolution.ViewModels.csproj"
               }
@@ -49,6 +52,22 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "Microsoft.IdentityModel.Logging": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [
@@ -134,6 +153,58 @@
               "version": "[5.0.0, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj",
+        "projectName": "personalBlogSolution.Utilities",
+        "projectPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/personalBlogSolution.Utilities.csproj",
+        "packagesPath": "/Users/duynguyen/.nuget/packages/",
+        "outputPath": "/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.Utilities/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/duynguyen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "imports": [
             "net461",
             "net462",
