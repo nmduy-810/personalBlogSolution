@@ -16,6 +16,8 @@ namespace personalBlogSolution.AdminApp.Services.Users
         Task<ApiResult<bool>> RegisterUser(UserRegisterRequest registerRequest);
 
         Task<ApiResult<bool>> UpdateUser(Guid id, UserUpdateRequest request);
+        
+        Task<ApiResult<bool>> ChangePassword(Guid id, UserUpdatePasswordRequest request);
 
         Task<ApiResult<UserVM>> GetById(Guid id);
 

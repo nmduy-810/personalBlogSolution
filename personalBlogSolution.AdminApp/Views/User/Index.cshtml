@@ -113,7 +113,7 @@
                                             var fullName = item.FirstName +" "+ item.LastName;
                                         }
                                         <a href="#" onclick="location.href='@Url.Action("Details", "User", new { id = item.Id })'">
-                                            <p class="c_name">@Html.DisplayFor(modelItem => fullName) <span class="badge badge-default m-l-10 hidden-sm-down">Administrator</span></p>
+                                            <p class="c_name">@Html.DisplayFor(modelItem => fullName) <span class="badge badge-default m-l-10 hidden-sm-down">Admin</span></p>
                                         </a>
                                     </td>
                                     <td>
@@ -127,7 +127,9 @@
                                     </td>
                                     <td>
                                         <button onclick="location.href='@Url.Action("Edit", "User", new { id = item.Id })'" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round"><i class="zmdi zmdi-edit"></i></button>
+                                        <button onclick="location.href='@Url.Action("RoleAssign", "User", new { id = item.Id })'" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round"><i class="zmdi zmdi-accounts"></i></button>
                                         <button onclick="location.href='@Url.Action("Delete", "User", new { id = item.Id })'" class="btn btn-default btn-icon btn-simple btn-icon-mini btn-round"><i class="zmdi zmdi-delete"></i></button>
+                                        
                                     </td>
                                 </tr>
                             }

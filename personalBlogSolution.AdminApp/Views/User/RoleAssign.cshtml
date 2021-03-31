@@ -1,0 +1,70 @@
+@model personalBlogSolution.ViewModels.System.Users.RoleAssignRequest
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Role Assign
+                    <small class="text-muted">Role assign for user</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10" type="button">
+                    <i class="zmdi zmdi-plus"></i>
+                </button>
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="zmdi zmdi-home"></i> Compass</a>
+                    </li>
+                    <li class="breadcrumb-item active">User</li>
+                    <li class="breadcrumb-item active">Role</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Role</strong> Settings</h2>
+                </div>
+                <div class="body">
+                    <form asp-action="RoleAssign">
+                        <div class="row clearfix">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id"/>
+                            @for (var i = 0; i < Model.Roles.Count; i++)
+                            {
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <input type="hidden" asp-for="Roles[i].Id" />
+                                        <input type="hidden" asp-for="Roles[i].Name" />
+                                        <input asp-for="Roles[i].Selected" type="checkbox">
+                                        <label asp-for="Roles[i].Selected">@Model.Roles[i].Name</label>
+                                    </div>
+                                </div>
+                            }
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-round">Save Changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+    <script src="~/bundles/vendorscripts.bundle.js"></script> <!-- slim scroll, waves Scripts Plugin Js -->
+    <script src="~/bundles/mainscripts.bundle.js"></script>
+    <script src="~/bundles/footable.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="~/js/pages/tables/footable.js"></script><!-- Custom Js -->
+}

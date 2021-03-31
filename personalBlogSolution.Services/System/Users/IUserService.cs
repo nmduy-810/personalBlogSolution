@@ -13,6 +13,8 @@ namespace personalBlogSolution.Services.System.Users
         Task<ApiResult<bool>> Register(UserRegisterRequest request);
 
         Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request);
+        
+        Task<ApiResult<bool>> ChangePassword(Guid id, UserUpdatePasswordRequest request);
 
         Task<ApiResult<bool>> Delete(Guid id);
 

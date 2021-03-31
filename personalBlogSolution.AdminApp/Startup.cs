@@ -1,20 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using personalBlogSolution.AdminApp.Services.Roles;
 using personalBlogSolution.AdminApp.Services.Users;
-using personalBlogSolution.Data.EF;
-using personalBlogSolution.Data.Entities;
 using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.AdminApp
@@ -47,7 +40,10 @@ namespace personalBlogSolution.AdminApp
             
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
 
+            services.AddTransient<IRoleApiClient, RoleApiClient>();
+            
             services.AddTransient<IUserApiClient, UserApiClient>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

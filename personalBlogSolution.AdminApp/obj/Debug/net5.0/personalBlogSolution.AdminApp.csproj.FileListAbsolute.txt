@@ -400,3 +400,5 @@
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/obj/Debug/net5.0/Razor/Views/User/Edit.cshtml.g.cs
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/obj/Debug/net5.0/Razor/Views/User/Index.cshtml.g.cs
 /Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/obj/Debug/net5.0/Razor/Views/Role/Index.cshtml.g.cs
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/obj/Debug/net5.0/Razor/Views/User/ChangePassword.cshtml.g.cs
+/Users/duynguyen/Documents/Development/NETCore/personalBlogSolution/personalBlogSolution.AdminApp/obj/Debug/net5.0/Razor/Views/User/RoleAssign.cshtml.g.cs

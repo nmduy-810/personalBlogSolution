@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using personalBlogSolution.ViewModels.System.Roles;
 
 namespace personalBlogSolution.ViewModels.System.Users
 {

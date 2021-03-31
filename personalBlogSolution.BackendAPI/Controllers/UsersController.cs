@@ -1,10 +1,7 @@
 using System;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using personalBlogSolution.Data.Entities;
 using personalBlogSolution.Services.System.Users;
 using personalBlogSolution.ViewModels.System.Users;
 
@@ -15,13 +12,10 @@ namespace personalBlogSolution.BackendAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly UserManager<AppUser> _userManager;
 
-        public UsersController(IUserService userService,UserManager<AppUser> userManager)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
-            _userManager = userManager;
-
         }
         
         //http://localhost/api/users/paging?pageIndex=1&pageSize=10&keyword=''
@@ -100,6 +94,21 @@ namespace personalBlogSolution.BackendAPI.Controllers
             var result = await _userService.Authenticate(request);
 
             if (string.IsNullOrEmpty(result.ResultDataObject))
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+        
+        //PUT: http://localhost/api/users/change-password/id
+        [HttpPut("change-password/{id}")]
+        public async Task<IActionResult> ChangePassword(Guid id, [FromBody] UserUpdatePasswordRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.ChangePassword(id, request);
+            if (!result.IsSuccess)
             {
                 return BadRequest(result);
             }

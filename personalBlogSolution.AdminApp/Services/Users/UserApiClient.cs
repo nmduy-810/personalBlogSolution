@@ -1,12 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using System;
-
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using personalBlogSolution.ViewModels.Common.ApiResult;
 using personalBlogSolution.ViewModels.Common.Paged;
@@ -30,6 +25,11 @@ namespace personalBlogSolution.AdminApp.Services.Users
         public async Task<ApiResult<bool>> DeleteUser(Guid id)
         {
             return await DeleteAsync<ApiResult<bool>>($"/api/users/{id}");
+        }
+
+        public async Task<ApiResult<bool>> ChangePassword(Guid id, UserUpdatePasswordRequest request)
+        {
+            return await PutAsync<ApiResult<bool>>($"/api/users/change-password/{id}", request);
         }
 
         public async Task<ApiResult<UserVM>> GetById(Guid id)

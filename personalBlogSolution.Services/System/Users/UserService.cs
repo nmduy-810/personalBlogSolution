@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -11,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using personalBlogSolution.Data.Entities;
 using personalBlogSolution.ViewModels.Common.ApiResult;
 using personalBlogSolution.ViewModels.Common.Paged;
+using personalBlogSolution.ViewModels.System.Roles;
 using personalBlogSolution.ViewModels.System.Users;
 
 namespace personalBlogSolution.Services.System.Users
@@ -65,6 +67,31 @@ namespace personalBlogSolution.Services.System.Users
             return new ApiSuccessResult<string>(new JwtSecurityTokenHandler().WriteToken(token));
         }
 
+        public async Task<ApiResult<bool>> ChangePassword(Guid id, UserUpdatePasswordRequest request)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("User không tồn tại");
+            }
+
+            var checkPassword = _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, request.OldPassword);
+
+            if (checkPassword != PasswordVerificationResult.Success)
+            {
+                return new ApiErrorResult<bool>("Invalid login attempt.");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            
+            var result = await _userManager.ResetPasswordAsync(user, token, request.NewPassword);
+            
+            if (result.Succeeded)
+                return new ApiSuccessResult<bool>();
+            
+            return new ApiErrorResult<bool>("Cập nhật mật khẩu không thành công");
+        }
+
         public async Task<ApiResult<bool>> Delete(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
@@ -73,8 +100,8 @@ namespace personalBlogSolution.Services.System.Users
                 return new ApiErrorResult<bool>("User không tồn tại");
             }
 
-            var reult = await _userManager.DeleteAsync(user);
-            if (reult.Succeeded)
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
                 return new ApiSuccessResult<bool>();
 
             return new ApiErrorResult<bool>("Xóa không thành công");

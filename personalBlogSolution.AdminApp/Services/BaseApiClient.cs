@@ -36,7 +36,10 @@ namespace personalBlogSolution.AdminApp.Services
                 
             var body = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) return JsonConvert.DeserializeObject<TResponse>(body);
+            if (!response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<TResponse>(body);
+            }
             
             var myDeserializedObjList = (TResponse)JsonConvert.DeserializeObject(body, typeof(TResponse));
             
